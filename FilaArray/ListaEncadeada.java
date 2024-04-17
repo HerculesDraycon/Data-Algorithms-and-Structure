@@ -1,4 +1,4 @@
-public class ListaEncadeada {
+public class ListaEncadeada<T> {
 
     private Element head;
     private Element tail;
@@ -17,21 +17,21 @@ public class ListaEncadeada {
         tail = null;
     }
 
-    public Object getPrimeiro() throws ListaVaziaException {
+    public T getPrimeiro() throws ListaVaziaException {
         if(head == null){
             throw new ListaVaziaException();
         }
         return head.data;
     }
 
-    public Object getUltimo() throws ListaVaziaException {
+    public T getUltimo() throws ListaVaziaException {
         if(tail == null){
             throw new ListaVaziaException();
         }
         return tail.data;
     }
 
-    public void inserirInicio(Object item){
+    public void inserirInicio(T item){
         Element temp = new Element(item, head);
         if(head == null){
             tail = temp;
@@ -40,7 +40,7 @@ public class ListaEncadeada {
         }
     }
 
-    public void inserirFim(Object item){
+    public void inserirFim(T item){
         Element temp = new Element(item, null);
         if(head == null){
             head = temp;
@@ -50,7 +50,7 @@ public class ListaEncadeada {
         tail = temp;
     }
 
-    public void atribuir(ListaEncadeada l){
+    public void atribuir(ListaEncadeada<T> l){
         if(l != this){
             this.fazVazia();
             for(Element ptr = l.head; ptr != null; ptr = ptr.next){
@@ -59,7 +59,7 @@ public class ListaEncadeada {
         }
     }
 
-    public void extrair(Object item) throws ObjetoNaoEncontradoException {
+    public void extrair(T item) throws ObjetoNaoEncontradoException {
 
         Element ptr = head;
         Element prevPtr = null;
@@ -85,29 +85,20 @@ public class ListaEncadeada {
 
     }
 
-    @Override
-    public String toString(){
-        StringBuilder print = new StringBuilder();
-        for(Element ptr=head; ptr!=null; ptr = ptr.next){
-            print.append(ptr.data + " ");
-        }
-        return print.toString();
-    }
-
     public final class Element {
         
-        private Object data;
+        private T data;
         private Element next;
     
-        Element(Object d, Element n){
+        Element(T d, Element n){
             data = d;
             next = n;
         }
     
-        public Object getData(){return data;}
-        public Object getNext(){return next;}
+        public T getData(){return data;}
+        public Element getNext(){return next;}
     
-        public void inserirDepois(Object item){
+        public void inserirDepois(T item){
     
             next = new Element(item, next);
             if(tail == this){
@@ -116,7 +107,7 @@ public class ListaEncadeada {
     
         }
     
-        public void inserirAntes(Object item){
+        public void inserirAntes(T item){
     
             Element temp = new Element(item, next);
             if(head == this){

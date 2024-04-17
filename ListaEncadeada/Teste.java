@@ -3,6 +3,7 @@ public class Teste {
     public static void main(String[] args) throws Exception {
         
         ListaEncadeada l1 = new ListaEncadeada();
+        ListaEncadeada l2 = new ListaEncadeada();
 
         System.out.println("A lista esta vazia? " + l1.estaVazia()); //Confere se esta vazia e deve retornar true
 
@@ -28,7 +29,9 @@ public class Teste {
         System.out.println(l1.getHead());    //Imprime para onde o head esta apontando na lista
         System.out.println(l1.getTail());    //Imprime para onde o tail esta apontando na lista
 
-        l1.extrair(4);    //Deve extrair o item passado da lista
+        //l1.extrair(4);    //Deve extrair o item passado da lista
+        l2.atribuir(l1);
+        l2.toString();
 
     }
 

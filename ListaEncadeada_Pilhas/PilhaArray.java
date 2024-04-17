@@ -17,7 +17,7 @@ public class PilhaArray implements Pilha {
 
     public void fazVazia(){
         while(count > 0){
-            array[--count] = null;
+            array[count--] = null;
         }
     }
 
@@ -51,6 +51,10 @@ public class PilhaArray implements Pilha {
             throw new ContainerVazioException();
         }
         return array[count - 1];
+    }
+
+    public int tamanhoPilha(){
+        return array.length;
     }
 
 }

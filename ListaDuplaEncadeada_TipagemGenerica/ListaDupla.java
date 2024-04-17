@@ -60,7 +60,7 @@ public class ListaDupla <T> {
         
         Element temp = new Element(data, tail, null);
 
-        if(head.equals(null)){
+        if(tail == null){
             head = temp;
         } else {
             tail.next = temp;
@@ -84,10 +84,12 @@ public class ListaDupla <T> {
     public void remover(T data) throws ObjetoNaoEncontradoException{
 
         Element ptr = head;
+        Element prev = null;
 
         while(!ptr.equals(null) && !ptr.data.equals(data)){
+            prev = ptr;
             ptr = ptr.next;
-        }
+        } 
 
         if(ptr.equals(null)){
             throw new ObjetoNaoEncontradoException();
@@ -104,7 +106,7 @@ public class ListaDupla <T> {
             } else {
                 (ptr.prev).next = ptr.next;
                 (ptr.next).prev = ptr.prev;
-            } 
+            }
 
         }
 

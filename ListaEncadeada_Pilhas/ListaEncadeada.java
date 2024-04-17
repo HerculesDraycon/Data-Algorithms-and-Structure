@@ -86,7 +86,7 @@ public class ListaEncadeada <T> {
 
     public void imprimir(){
 
-        Element aux = this.head;
+        Element aux = head;
         while(aux != null){
             System.out.print("[" + aux.data + "]");
             aux = aux.next;
@@ -98,7 +98,7 @@ public class ListaEncadeada <T> {
     public int tamanhoLista(){
 
         int contador = 1;
-        Element e = this.head;
+        Element e = head;
 
         if(e.equals(null)){
             System.out.println("A lista esta vazia");
@@ -118,7 +118,7 @@ public class ListaEncadeada <T> {
 
         Element e = head;
 
-        if(pos > this.tamanhoLista()){
+        if(pos > tamanhoLista()){
             throw new ListaVaziaException();
         }
 
